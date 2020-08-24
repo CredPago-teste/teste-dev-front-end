@@ -13,7 +13,7 @@ Criação da aplicação abaixo para teste de qualidade e boas práticas em dese
     - Opcional:
       - Criação de uma pequena REST API com JSON Server para atender as demandas de crud
         - https://github.com/typicode/json-server
-      - Testes
+      - Testes de componente e lógica
 
 ## Aplicação
 
