@@ -31,3 +31,5 @@ Criação da aplicação abaixo para teste de qualidade e boas práticas em dese
   - Desenvolver tela principal (conforme a imagem /modelo/principal.jpeg)
   - Desenvolver modal de edição e novo agendamento (conforme a imagem /modelo/modal.png)
   - Ao clicar em Apagar deve aparecer um modal solicitando se deseja remover essa visita
+  
+# ABRIR UM PULL REQUEST PARA ENTREGAR O TESTE
