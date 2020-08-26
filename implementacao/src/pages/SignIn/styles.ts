@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { shade } from 'polished';
+import styled from "styled-components";
+import { shade } from "polished";
 
 export const Container = styled.div`
   width: 100%;
@@ -9,8 +9,13 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  background: rgb(0,133,195);
-  background: linear-gradient(210deg, rgba(0,133,195,1) 0%, rgba(0,139,204,1) 35%, rgba(0,155,226,1) 100%);
+  background: rgb(0, 133, 195);
+  background: linear-gradient(
+    210deg,
+    rgba(0, 133, 195, 1) 0%,
+    rgba(0, 139, 204, 1) 35%,
+    rgba(0, 155, 226, 1) 100%
+  );
 
   img {
     width: 130px;
@@ -18,7 +23,7 @@ export const Container = styled.div`
 `;
 
 export const LoginBox = styled.div`
-  background: #FFFFFF;
+  background: #ffffff;
   border-radius: 5px;
   padding: 20px;
   margin-top: 30px;
@@ -44,20 +49,20 @@ export const LoginBox = styled.div`
       input {
         margin-top: 5px;
         padding: 10px;
-        background: #F1F1F1;
+        background: #f1f1f1;
         border: 1px solid #cfcfcf;
         border-radius: 5px;
       }
 
       > button {
-        background: #0DC2EE;
+        background: #0dc2ee;
         border: none;
-        color: #FFFFFF;
+        color: #ffffff;
         padding: 10px;
         font-size: 18px;
 
         &:hover {
-          background: ${shade(0.1, '#0DC2EE')}
+          background: ${shade(0.1, "#0DC2EE")};
         }
       }
 
@@ -65,8 +70,6 @@ export const LoginBox = styled.div`
         color: #838383;
         font-size: 14px;
       }
-
-
     }
   }
 `;

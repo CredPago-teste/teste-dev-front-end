@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from "styled-components";
 
 export default createGlobalStyle`
   * {
@@ -16,6 +16,7 @@ export default createGlobalStyle`
     font-family: 'Roboto-slab', sans-serif;
     font-weight: 400;
     font-size: 16px;
+    color: #4F4F4F;
   }
 
   #root {
@@ -25,7 +26,7 @@ export default createGlobalStyle`
   h1, h2, h3, h4, h5, h6, strong{
     font-weight: 500;
   }
-  
+
   button {
     cursor: pointer;
   }
