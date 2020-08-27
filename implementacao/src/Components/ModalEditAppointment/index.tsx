@@ -64,7 +64,7 @@ const ModalEditAppointment: React.FC<ModalProps> = ({
   return (
     <Modal isOpen={isOpen} setIsOpen={setIsOpen}>
       <ModalHeader>
-        <strong>Novo agendamento</strong>
+        <strong>Editar agendamento</strong>
         <button type="button" onClick={setIsOpen}>
           <MdClose size={30} />
         </button>
