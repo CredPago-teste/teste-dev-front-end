@@ -50,6 +50,32 @@ export const HeaderContent = styled.div`
       font-size: 18px;
     }
   }
+
+  @media only screen and (max-width: 425px) {
+    display: grid;
+    grid-template-areas:
+      "LOGO WCM WCM"
+      "MENU MENU MENU";
+    grid-gap: 10px;
+    place-content: center;
+
+    img {
+      grid-area: LOGO;
+      width: 100px;
+    }
+
+    div {
+      &.welcome {
+        grid-area: WCM;
+      }
+
+      &.menu {
+        grid-area: MENU;
+        width: 100%;
+        place-content: center;
+      }
+    }
+  }
 `;
 
 export const Content = styled.div`
@@ -59,6 +85,10 @@ export const Content = styled.div`
   flex-direction: column;
   padding: 15px 0;
   margin: 45px auto 0;
+
+  @media only screen and (max-width: 768px) {
+    padding: 15px;
+  }
 `;
 
 export const TitleContainer = styled.div`
@@ -87,6 +117,23 @@ export const TitleContainer = styled.div`
 
     svg {
       margin-right: 5px;
+    }
+  }
+
+  @media only screen and (max-width: 425px) {
+    h1 {
+      font-size: 30px;
+    }
+
+    button {
+      span {
+        display: none;
+      }
+
+      svg {
+        margin: 0;
+        font-size: 30px;
+      }
     }
   }
 `;
@@ -155,6 +202,67 @@ export const AppointmentsTable = styled.table`
           }
         }
       }
+    }
+  }
+
+  @media only screen and (max-width: 760px),
+    (min-device-width: 768px) and (max-device-width: 1024px) {
+    display: block;
+
+    thead,
+    tbody,
+    th,
+    td,
+    tr {
+      display: block;
+    }
+
+    /* Hide table headers (but not display: none;, for accessibility) */
+    thead tr {
+      position: absolute;
+      top: -9999px;
+      left: -9999px;
+    }
+
+    tr {
+      border: 1px solid #ccc;
+    }
+
+    td {
+      padding: 10px 5px 10px 50% !important;
+      border: none;
+      border-bottom: 1px solid #eee;
+      position: relative;
+      text-align: initial;
+
+      &.actions {
+        text-align: initial;
+      }
+    }
+
+    td:before {
+      position: absolute;
+      top: 11px;
+      left: 6px;
+      width: 45%;
+      padding-right: 10px;
+      white-space: nowrap;
+    }
+
+    td:nth-of-type(1):before {
+      content: "DATA/HORA";
+    }
+    td:nth-of-type(2):before {
+      content: "ID DO IMÓVEL";
+    }
+    td:nth-of-type(3):before {
+      content: "VISITANTE";
+    }
+    td:nth-of-type(4):before {
+      content: "ENDEREÇO";
+    }
+    td:nth-of-type(5):before {
+      content: "AÇÕES";
     }
   }
 `;

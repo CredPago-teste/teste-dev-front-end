@@ -156,12 +156,12 @@ const Dashboard: React.FC = () => {
       <Header>
         <HeaderContent>
           <img src={logoImg} alt="CredPago" />
-          <div>
+          <div className="menu">
             <a href="/">MEU PERFIL</a>
             <hr />
             <Link to="/">SAIR</Link>
           </div>
-          <div>
+          <div className="welcome">
             <span>Olá João Corretor</span>
           </div>
         </HeaderContent>
@@ -172,7 +172,8 @@ const Dashboard: React.FC = () => {
 
           <div>
             <button type="button" onClick={toogleModal}>
-              <MdAdd /> Novo agendamento
+              <MdAdd />
+              <span>Novo agendamento</span>
             </button>
           </div>
         </TitleContainer>
