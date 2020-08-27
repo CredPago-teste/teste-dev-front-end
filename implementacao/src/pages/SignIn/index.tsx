@@ -1,25 +1,25 @@
-import React from 'react';
-import { Container, LoginBox } from './styles';
+import React from "react";
+import { Container, LoginBox } from "./styles";
 
-import logoImg from '../../assets/images/logo-credpago.svg';
+import logoImg from "../../assets/images/logo-credpago.svg";
 
 const SignIn: React.FC = () => {
   return (
     <Container>
-      <img src={logoImg} alt="CredPago"/>
+      <img src={logoImg} alt="CredPago" />
       <LoginBox>
         <form>
           <div>
-            <label>
+            <label htmlFor="email">
               Email: <span>*</span>
             </label>
-            <input type="email" placeholder="seu@email.com"/>
+            <input type="email" name="email" placeholder="seu@email.com" />
           </div>
           <div>
-            <label>
+            <label htmlFor="password">
               Senha: <span>*</span>
             </label>
-            <input type="password" placeholder="*******"/>
+            <input type="password" name="password" placeholder="*******" />
           </div>
           <div>
             <button type="submit">Entrar</button>
@@ -31,6 +31,6 @@ const SignIn: React.FC = () => {
       </LoginBox>
     </Container>
   );
-}
+};
 
 export default SignIn;
