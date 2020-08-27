@@ -12,19 +12,27 @@ import {
   AppointmentsTable,
 } from "./styles";
 import ModalAddAppointment from "../../Components/ModalAddAppointment";
+import ModalDeleteAppointment from "../../Components/ModalDeleteAppointment";
+import ModalEditAppointment from "../../Components/ModalEditAppointment";
 
 interface Appointment {
   id: number;
   date: string;
   hour: string;
   visitor_name: string;
-  addres: string;
+  address: string;
   address_number: string;
   immobile_id: number;
 }
 
 const Dashboard: React.FC = () => {
   const [modalOpen, setModalOpen] = useState(false);
+  const [modalDeleteOpen, setModalDeleteOpen] = useState(false);
+  const [modalEditOpen, setModalEditOpen] = useState(false);
+  const [deletingAppointment, setDeletingAppointment] = useState(0);
+  const [editingAppointment, setEditingAppointment] = useState(
+    {} as Appointment
+  );
 
   async function handleAddAppointment(
     appointment: Omit<Appointment, "id">
@@ -32,8 +40,29 @@ const Dashboard: React.FC = () => {
     console.log(appointment);
   }
 
+  async function handleDeleteAppointment(): Promise<void> {
+    console.log("deleted");
+
+    setDeletingAppointment(0);
+    setModalDeleteOpen(false);
+  }
+
+  async function handleUpdateAppointment(
+    appointment: Omit<Appointment, "id">
+  ): Promise<void> {
+    console.log(appointment);
+  }
+
   function toogleModal(): void {
     setModalOpen(!modalOpen);
+  }
+
+  function toogleDeleteModal(): void {
+    setModalDeleteOpen(!modalDeleteOpen);
+  }
+
+  function toogleEditModal(): void {
+    setModalEditOpen(!modalEditOpen);
   }
 
   return (
@@ -81,10 +110,34 @@ const Dashboard: React.FC = () => {
                   Rua Sombrio, 123 <MdLocationOn />
                 </td>
                 <td className="actions">
-                  <button type="button" className="edit">
+                  <button
+                    type="button"
+                    className="edit"
+                    onClick={() => {
+                      setEditingAppointment({
+                        address: "Rua Tabatinga",
+                        address_number: "1518",
+                        date: "28/02/2021",
+                        hour: "21:00",
+                        id: 1,
+                        immobile_id: 1000,
+                        visitor_name: "Rodrigo Albino Hammes",
+                      });
+
+                      toogleEditModal();
+                    }}
+                  >
                     Editar
                   </button>
-                  <button type="button" className="delete">
+                  <button
+                    type="button"
+                    className="delete"
+                    onClick={() => {
+                      setDeletingAppointment(1);
+
+                      toogleDeleteModal();
+                    }}
+                  >
                     Apagar
                   </button>
                 </td>
@@ -146,6 +199,27 @@ const Dashboard: React.FC = () => {
         isOpen={modalOpen}
         setIsOpen={toogleModal}
         handleAddAppointment={handleAddAppointment}
+      />
+
+      <ModalEditAppointment
+        isOpen={modalEditOpen}
+        setIsOpen={toogleEditModal}
+        editingAppoinment={{
+          address: "Rua Tabatinga",
+          address_number: "1518",
+          date: "28/02/2021",
+          hour: "21:00",
+          id: 1,
+          immobile_id: 1000,
+          visitor_name: "Rodrigo Albino Hammes",
+        }}
+        handleUpdateAppointment={handleUpdateAppointment}
+      />
+
+      <ModalDeleteAppointment
+        isOpen={modalDeleteOpen}
+        setIsOpen={toogleDeleteModal}
+        handleDeleteAppointment={handleDeleteAppointment}
       />
     </Container>
   );

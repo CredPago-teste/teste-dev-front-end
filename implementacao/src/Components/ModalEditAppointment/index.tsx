@@ -27,18 +27,38 @@ interface AppointmentData {
 interface ModalProps {
   isOpen: boolean;
   setIsOpen: () => void;
-  handleAddAppointment: (appointment: AppointmentData) => void;
+  editingAppoinment: Appointment;
+  handleUpdateAppointment: (appointment: AppointmentData) => void;
 }
 
-const ModalAddAppointment: React.FC<ModalProps> = ({
+const ModalEditAppointment: React.FC<ModalProps> = ({
   isOpen,
   setIsOpen,
-  handleAddAppointment,
+  editingAppoinment,
+  handleUpdateAppointment,
 }) => {
   const formRef = useRef<FormHandles>(null);
 
   const handleSubmit = useCallback(async (data: AppointmentData) => {
-    console.log(data);
+    const {
+      address,
+      address_number,
+      date,
+      hour,
+      immobile_id,
+      visitor_name,
+    } = data;
+
+    handleUpdateAppointment({
+      address,
+      address_number,
+      date,
+      hour,
+      immobile_id,
+      visitor_name,
+    });
+
+    setIsOpen();
   }, []);
 
   return (
@@ -49,7 +69,11 @@ const ModalAddAppointment: React.FC<ModalProps> = ({
           <MdClose size={30} />
         </button>
       </ModalHeader>
-      <Form ref={formRef} onSubmit={handleSubmit}>
+      <Form
+        ref={formRef}
+        onSubmit={handleSubmit}
+        initialData={editingAppoinment}
+      >
         <div>
           <div className="column-2">
             <Input name="date" placeholder="DD/MM/YYYY" label="Data" required />
@@ -89,11 +113,11 @@ const ModalAddAppointment: React.FC<ModalProps> = ({
           </div>
         </div>
         <footer>
-          <button type="submit">Cadastrar agendamento</button>
+          <button type="submit">Atualizar agendamento</button>
         </footer>
       </Form>
     </Modal>
   );
 };
 
-export default ModalAddAppointment;
+export default ModalEditAppointment;
