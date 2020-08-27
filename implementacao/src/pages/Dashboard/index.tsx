@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { MdAdd, MdLocationOn } from "react-icons/md";
 
 import logoImg from "../../assets/images/logo-credpago.svg";
@@ -11,8 +11,31 @@ import {
   Main,
   AppointmentsTable,
 } from "./styles";
+import ModalAddAppointment from "../../Components/ModalAddAppointment";
+
+interface Appointment {
+  id: number;
+  date: string;
+  hour: string;
+  visitor_name: string;
+  addres: string;
+  address_number: string;
+  immobile_id: number;
+}
 
 const Dashboard: React.FC = () => {
+  const [modalOpen, setModalOpen] = useState(false);
+
+  async function handleAddAppointment(
+    appointment: Omit<Appointment, "id">
+  ): Promise<void> {
+    console.log(appointment);
+  }
+
+  function toogleModal(): void {
+    setModalOpen(!modalOpen);
+  }
+
   return (
     <Container>
       <Header>
@@ -33,7 +56,7 @@ const Dashboard: React.FC = () => {
           <h1>Próximas Visitas</h1>
 
           <div>
-            <button type="button">
+            <button type="button" onClick={toogleModal}>
               <MdAdd /> Novo agendamento
             </button>
           </div>
@@ -118,6 +141,12 @@ const Dashboard: React.FC = () => {
           </AppointmentsTable>
         </Main>
       </Content>
+
+      <ModalAddAppointment
+        isOpen={modalOpen}
+        setIsOpen={toogleModal}
+        handleAddAppointment={handleAddAppointment}
+      />
     </Container>
   );
 };
