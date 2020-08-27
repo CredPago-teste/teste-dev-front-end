@@ -10,24 +10,6 @@
 
 <br>
 
-## 🛠️ Desenvolvimento
-
-- [Node.js](https://nodejs.org/en/)
-- [React](https://reactjs.org)
-- [Redux](https://redux.js.org/)
-
-### ⚙️ Dependências
-
-- [react-redux](https://www.npmjs.com/package/react-redux)
-- [styled-components](https://www.npmjs.com/package/styled-components)
-- [prop-types](https://www.npmjs.com/package/prop-types)
-- [uuid](https://www.npmjs.com/package/uuid)
-- [moment](https://www.npmjs.com/package/moment)
-
-## 💅🏻 Design
-
-O projeto da interface pode ser visualizado por meio [desse link](https://www.figma.com/file/T9xbTUTVoNmVqGvgzRJixB/Untitled?node-id=0%3A1).
-
 ## ▶️ Como usar?
 
 Execute os seguintes comando na raiz do projeto.
@@ -46,6 +28,24 @@ yarn start
 
 - email: email@credpago.com.br
 - senha: credpago
+
+## 🛠️ Desenvolvimento
+
+- [Node.js](https://nodejs.org/en/)
+- [React](https://reactjs.org)
+- [Redux](https://redux.js.org/)
+
+### ⚙️ Dependências
+
+- [react-redux](https://www.npmjs.com/package/react-redux)
+- [styled-components](https://www.npmjs.com/package/styled-components)
+- [prop-types](https://www.npmjs.com/package/prop-types)
+- [uuid](https://www.npmjs.com/package/uuid)
+- [moment](https://www.npmjs.com/package/moment)
+
+## 💅🏻 Design
+
+O projeto da interface pode ser visualizado por meio [desse link](https://www.figma.com/file/T9xbTUTVoNmVqGvgzRJixB/Untitled?node-id=0%3A1).
 
 <br>
 
