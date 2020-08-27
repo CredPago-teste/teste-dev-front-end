@@ -1,0 +1,67 @@
+@import '../styles/fonts.css';
+
+:root {
+  font-size: 60%;
+
+  --color-background: #ffffff;
+  --color-text-base: #5c5c5c;
+  --color-text-placeholder: #bebebe;
+  --color-border-outline: #31cbf1;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100vh;
+}
+
+body {
+  background-color: var(--color-background);
+}
+
+#root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+body,
+input,
+button,
+textarea {
+  font: 400 1.6rem Poppins;
+  color: var(--color-text-base);
+  outline-color: var(--color-border-outline);
+}
+
+::-webkit-input-placeholder {
+  color: var(--color-text-placeholder);
+}
+input:-moz-placeholder {
+  color: var(--color-text-placeholder);
+}
+textarea:-moz-placeholder {
+  color: var(--color-text-placeholder);
+}
+
+ul {
+  list-style-type: none;
+}
+
+@media (min-width: 700px) {
+  :root {
+    font-size: 62.5%;
+  }
+}
+
+@media (max-width: 320px) {
+  :root {
+    font-size: 50%;
+  }
+}
