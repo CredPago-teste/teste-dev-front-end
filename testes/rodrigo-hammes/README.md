@@ -38,11 +38,13 @@ $ cd teste-dev-front-end/testes/rodrigo-hammes
 # instale as dependências
 $ yarn
 
+# Inicie o JSON Server
+$ yarn json-server server.json  --port 3333
+
 # inicie a aplicação
 $ yarn start
 
 ```
-
 
 
 ## License
