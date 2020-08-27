@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { MdAdd, MdLocationOn } from "react-icons/md";
 
 import logoImg from "../../assets/images/logo-credpago.svg";
@@ -14,6 +14,7 @@ import {
 import ModalAddAppointment from "../../Components/ModalAddAppointment";
 import ModalDeleteAppointment from "../../Components/ModalDeleteAppointment";
 import ModalEditAppointment from "../../Components/ModalEditAppointment";
+import api from "../../services/api";
 
 interface Appointment {
   id: number;
@@ -26,6 +27,7 @@ interface Appointment {
 }
 
 const Dashboard: React.FC = () => {
+  const [appointments, setAppointments] = useState<Appointment[]>([]);
   const [modalOpen, setModalOpen] = useState(false);
   const [modalDeleteOpen, setModalDeleteOpen] = useState(false);
   const [modalEditOpen, setModalEditOpen] = useState(false);
@@ -33,6 +35,16 @@ const Dashboard: React.FC = () => {
   const [editingAppointment, setEditingAppointment] = useState(
     {} as Appointment
   );
+
+  useEffect(() => {
+    async function loadAppointments(): Promise<void> {
+      const response = await api.get("appointments");
+
+      setAppointments(response.data);
+    }
+
+    loadAppointments();
+  }, []);
 
   async function handleAddAppointment(
     appointment: Omit<Appointment, "id">
@@ -102,94 +114,40 @@ const Dashboard: React.FC = () => {
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>22/08/2020 11:00</td>
-                <td>1235838</td>
-                <td>Samuel Silva</td>
-                <td>
-                  Rua Sombrio, 123 <MdLocationOn />
-                </td>
-                <td className="actions">
-                  <button
-                    type="button"
-                    className="edit"
-                    onClick={() => {
-                      setEditingAppointment({
-                        address: "Rua Tabatinga",
-                        address_number: "1518",
-                        date: "28/02/2021",
-                        hour: "21:00",
-                        id: 1,
-                        immobile_id: 1000,
-                        visitor_name: "Rodrigo Albino Hammes",
-                      });
+              {appointments.map((appointment) => (
+                <tr>
+                  <td>22/08/2020 11:00</td>
+                  <td>1235838</td>
+                  <td>{appointment.visitor_name}</td>
+                  <td>
+                    Rua Sombrio, 123 <MdLocationOn />
+                  </td>
+                  <td className="actions">
+                    <button
+                      type="button"
+                      className="edit"
+                      onClick={() => {
+                        setEditingAppointment(appointment);
 
-                      toogleEditModal();
-                    }}
-                  >
-                    Editar
-                  </button>
-                  <button
-                    type="button"
-                    className="delete"
-                    onClick={() => {
-                      setDeletingAppointment(1);
+                        toogleEditModal();
+                      }}
+                    >
+                      Editar
+                    </button>
+                    <button
+                      type="button"
+                      className="delete"
+                      onClick={() => {
+                        setDeletingAppointment(appointment.id);
 
-                      toogleDeleteModal();
-                    }}
-                  >
-                    Apagar
-                  </button>
-                </td>
-              </tr>
-              <tr>
-                <td>22/08/2020 11:00</td>
-                <td>1235838</td>
-                <td>Samuel Silva</td>
-                <td>
-                  Rua Sombrio, 123 <MdLocationOn />
-                </td>
-                <td className="actions">
-                  <button type="button" className="edit">
-                    Editar
-                  </button>
-                  <button type="button" className="delete">
-                    Apagar
-                  </button>
-                </td>
-              </tr>
-              <tr>
-                <td>22/08/2020 11:00</td>
-                <td>1235838</td>
-                <td>Samuel Silva</td>
-                <td>
-                  Rua Sombrio, 123 <MdLocationOn />
-                </td>
-                <td className="actions">
-                  <button type="button" className="edit">
-                    Editar
-                  </button>
-                  <button type="button" className="delete">
-                    Apagar
-                  </button>
-                </td>
-              </tr>
-              <tr>
-                <td>22/08/2020 11:00</td>
-                <td>1235838</td>
-                <td>Samuel Silva</td>
-                <td>
-                  Rua Sombrio, 123 <MdLocationOn />
-                </td>
-                <td className="actions">
-                  <button type="button" className="edit">
-                    Editar
-                  </button>
-                  <button type="button" className="delete">
-                    Apagar
-                  </button>
-                </td>
-              </tr>
+                        toogleDeleteModal();
+                      }}
+                    >
+                      Apagar
+                    </button>
+                  </td>
+                </tr>
+              ))}
             </tbody>
           </AppointmentsTable>
         </Main>
@@ -204,15 +162,7 @@ const Dashboard: React.FC = () => {
       <ModalEditAppointment
         isOpen={modalEditOpen}
         setIsOpen={toogleEditModal}
-        editingAppoinment={{
-          address: "Rua Tabatinga",
-          address_number: "1518",
-          date: "28/02/2021",
-          hour: "21:00",
-          id: 1,
-          immobile_id: 1000,
-          visitor_name: "Rodrigo Albino Hammes",
-        }}
+        editingAppoinment={editingAppointment}
         handleUpdateAppointment={handleUpdateAppointment}
       />
 

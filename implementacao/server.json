@@ -1,0 +1,13 @@
+{
+  "appointments": [
+    {
+      "id": "123",
+      "date": "22/05/2021",
+      "hour": "15:00",
+      "visitor_name": "Rodrigo Silva",
+      "address": "Rua Sombrio",
+      "address_number": 123,
+      "immobile_id": 50
+    }
+  ]
+}
