@@ -1,14 +1,22 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
+
 import { Container, LoginBox } from "./styles";
 
 import logoImg from "../../assets/images/logo-credpago.svg";
 
 const SignIn: React.FC = () => {
+  const history = useHistory();
+
+  function handleSignIn() {
+    history.push("/dashboard");
+  }
+
   return (
     <Container>
       <img src={logoImg} alt="CredPago" />
       <LoginBox>
-        <form>
+        <form onSubmit={handleSignIn}>
           <div>
             <label htmlFor="email">
               Email: <span>*</span>

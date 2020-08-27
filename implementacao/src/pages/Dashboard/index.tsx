@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { MdAdd, MdLocationOn } from "react-icons/md";
+import { Link } from "react-router-dom";
 
 import logoImg from "../../assets/images/logo-credpago.svg";
 import {
@@ -158,7 +159,7 @@ const Dashboard: React.FC = () => {
           <div>
             <a href="/">MEU PERFIL</a>
             <hr />
-            <a href="/">SAIR</a>
+            <Link to="/">SAIR</Link>
           </div>
           <div>
             <span>Olá João Corretor</span>
