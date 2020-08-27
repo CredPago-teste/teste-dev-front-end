@@ -18,6 +18,12 @@ export const ModalHeader = styled.header`
     border: none;
     background: none;
   }
+
+  @media only screen and (max-width: 425px) {
+    strong {
+      font-size: 25px;
+    }
+  }
 `;
 
 export const Content = styled.div`
