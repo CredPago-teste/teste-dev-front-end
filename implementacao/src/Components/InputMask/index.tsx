@@ -1,21 +1,21 @@
-import React, {
-  InputHTMLAttributes,
-  useEffect,
-  useRef,
-  useState,
-  useCallback,
-} from "react";
+import React, { useEffect, useRef, useState, useCallback } from "react";
 
+import ReactInputMask, { Props as MaskProps } from "react-input-mask";
 import { useField } from "@unform/core";
 import { Container, InputContainer } from "./styles";
 
-interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
+interface InputProps extends MaskProps {
   name: string;
   label?: string;
 }
 
-const Input: React.FC<InputProps> = ({ name, label, required, ...rest }) => {
-  const inputRef = useRef<HTMLInputElement>(null);
+const InputMask: React.FC<InputProps> = ({
+  name,
+  label,
+  required,
+  ...rest
+}) => {
+  const inputRef = useRef(null);
 
   const [isFocused, setIsFocused] = useState(false);
 
@@ -45,11 +45,11 @@ const Input: React.FC<InputProps> = ({ name, label, required, ...rest }) => {
         </label>
       )}
       <InputContainer isFocused={isFocused} isErrored={!!error}>
-        <input
+        <ReactInputMask
+          ref={inputRef}
           onFocus={handleInputFocus}
           onBlur={handleInputBlur}
           defaultValue={defaultValue}
-          ref={inputRef}
           required={!!required}
           {...rest}
         />
@@ -60,4 +60,4 @@ const Input: React.FC<InputProps> = ({ name, label, required, ...rest }) => {
   );
 };
 
-export default Input;
+export default InputMask;

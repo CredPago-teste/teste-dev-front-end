@@ -1,9 +1,12 @@
 import React, { useRef, useCallback } from "react";
 import { FormHandles } from "@unform/core";
 import { MdClose } from "react-icons/md";
+import * as Yup from "yup";
 import { ModalHeader, Form } from "./styles";
 import Modal from "../Modal";
 import Input from "../Input";
+import InputMask from "../InputMask";
+import getValidationErrors from "../../utils/getValidationErrors";
 
 interface Appointment {
   id: number;
@@ -12,7 +15,7 @@ interface Appointment {
   visitor_name: string;
   address: string;
   address_number: string;
-  immobile_id: number;
+  immobile_id: string;
 }
 
 interface AppointmentData {
@@ -21,7 +24,7 @@ interface AppointmentData {
   visitor_name: string;
   address: string;
   address_number: string;
-  immobile_id: number;
+  immobile_id: string;
 }
 
 interface ModalProps {
@@ -37,9 +40,41 @@ const ModalAddAppointment: React.FC<ModalProps> = ({
 }) => {
   const formRef = useRef<FormHandles>(null);
 
-  const handleSubmit = useCallback(async (data: AppointmentData) => {
-    console.log(data);
-  }, []);
+  const handleSubmit = useCallback(
+    async (data: AppointmentData) => {
+      try {
+        formRef.current?.setErrors({});
+
+        const schema = Yup.object().shape({
+          date: Yup.string().required("Data é um campo obrigatório"),
+          hour: Yup.string().required("Hora é um campo obrigatório"),
+          visitor_name: Yup.string().required(
+            "Nome do visitante é um campo obrigatório"
+          ),
+          address: Yup.string().required("Endereço é um campo obrigatório"),
+          address_number: Yup.string().required(
+            "Número é um campo obrigatório"
+          ),
+          immobile_id: Yup.string().required(
+            "ID do Imóvel é um campo obrigatório"
+          ),
+        });
+
+        await schema.validate(data, {
+          abortEarly: false,
+        });
+
+        handleAddAppointment(data);
+      } catch (err) {
+        if (err instanceof Yup.ValidationError) {
+          const errors = getValidationErrors(err);
+
+          formRef.current?.setErrors(errors);
+        }
+      }
+    },
+    [handleAddAppointment]
+  );
 
   return (
     <Modal isOpen={isOpen} setIsOpen={setIsOpen}>
@@ -52,15 +87,24 @@ const ModalAddAppointment: React.FC<ModalProps> = ({
       <Form ref={formRef} onSubmit={handleSubmit}>
         <div>
           <div className="column-2">
-            <Input name="date" placeholder="DD/MM/YYYY" label="Data" required />
-            <Input name="hour" placeholder="hh:mm" label="Hora" required />
+            <InputMask
+              name="date"
+              placeholder="DD/MM/YYYY"
+              label="Data"
+              mask="99/99/9999"
+            />
+            <InputMask
+              name="hour"
+              placeholder="hh:mm"
+              label="Hora"
+              mask="99:99"
+            />
           </div>
           <div className="column-2">
             <Input
               name="visitor_name"
               placeholder='Kleber "Bambam" de Paula'
               label="Nome do visitante"
-              required
             />
           </div>
 
@@ -69,7 +113,6 @@ const ModalAddAppointment: React.FC<ModalProps> = ({
               name="address"
               placeholder="Ex.: Rua São Paulo"
               label="Endereço"
-              required
             />
 
             <div className="column-2">
@@ -77,13 +120,11 @@ const ModalAddAppointment: React.FC<ModalProps> = ({
                 name="address_number"
                 placeholder="Ex.: 2"
                 label="Número"
-                required
               />
               <Input
                 name="immobile_id"
                 placeholder="Ex.: 6778"
                 label="ID Imóvel"
-                required
               />
             </div>
           </div>
