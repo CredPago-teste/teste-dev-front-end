@@ -1,9 +1,8 @@
-# Teste para desenvolvedor front-end	# Acessar a aplicação
+# Teste para desenvolvedor front-end
 
 
-Criação da aplicação abaixo para teste de qualidade e boas práticas em desenvolvimento web.	- email: credpago@gmail.com
+Criação da aplicação abaixo para teste de qualidade e boas práticas em desenvolvimento web.
 
-- senha: admin
 ## Regras	
 
   - Deve se usar as seguintes tecnologias:	
