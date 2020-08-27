@@ -3,9 +3,9 @@
 </h1>
 
 <p align="center">
-  <a href="#-desenvolvimento">Desenvolvimento</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-como-usar?">Como usar?</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-design">Design</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-como-usar?">Como usar?</a>
+  <a href="#-desenvolvimento">Desenvolvimento</a>
 </p>
 
 <br>
@@ -29,6 +29,16 @@ yarn start
 - email: email@credpago.com.br
 - senha: credpago
 
+<br>
+
+---
+
+<br>
+
+## 💅🏻 Design
+
+O projeto da interface pode ser visualizado por meio [desse link](https://www.figma.com/file/T9xbTUTVoNmVqGvgzRJixB/Untitled?node-id=0%3A1).
+
 ## 🛠️ Desenvolvimento
 
 - [Node.js](https://nodejs.org/en/)
@@ -42,10 +52,6 @@ yarn start
 - [prop-types](https://www.npmjs.com/package/prop-types)
 - [uuid](https://www.npmjs.com/package/uuid)
 - [moment](https://www.npmjs.com/package/moment)
-
-## 💅🏻 Design
-
-O projeto da interface pode ser visualizado por meio [desse link](https://www.figma.com/file/T9xbTUTVoNmVqGvgzRJixB/Untitled?node-id=0%3A1).
 
 <br>
 
