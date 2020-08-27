@@ -1,8 +1,8 @@
-import React from 'react';
+import React from "react";
 
-import GlobalStyle from './styles/global';
-import SignIn from './pages/SignIn';
-import Dashboard from './pages/Dashboard';
+import GlobalStyle from "./styles/global";
+import SignIn from "./pages/SignIn";
+import Dashboard from "./pages/Dashboard";
 
 const App: React.FC = () => {
   return (
@@ -11,6 +11,6 @@ const App: React.FC = () => {
       <GlobalStyle />
     </>
   );
-}
+};
 
 export default App;
