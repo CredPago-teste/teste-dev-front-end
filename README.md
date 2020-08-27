@@ -34,4 +34,4 @@ Criação da aplicação abaixo para teste de qualidade e boas práticas em dese
   - Desenvolver modal de edição e novo agendamento (conforme a imagem /modelo/modal.png)	
   - Ao clicar em Apagar deve aparecer um modal solicitando se deseja remover essa visita	
 
-### Abrir um pull request com uma pasta com seu nome para entregar o teste
+### Abrir um pull request com uma pasta com seu nome dentro da pasta TESTES para entregar o projeto
