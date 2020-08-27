@@ -24,6 +24,7 @@ export const Login = styled.main`
   }
 
   & .forgot-password {
+    text-align: right;
     font-size: 12px;
     font-weight: 500;
     color: gray;
@@ -39,6 +40,22 @@ export const Login = styled.main`
     & p {
       font-size: 12px;
       color: red;
+    }
+  }
+
+  & .footer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    color: gray;
+
+    & button {
+      font-size: 14px;
+      padding: 0 6px;
+      margin: 0;
+      color: #0DC2EF;
     }
   }
 `;

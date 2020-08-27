@@ -27,5 +27,10 @@ export const InputText = styled.label`
 
     border: 1px solid lightgray;
     background-color: whitesmoke;
+
+    &::placeholder {
+      color: gray;
+      opacity: .4;
+    }
   }
 `;

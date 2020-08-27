@@ -98,9 +98,9 @@ const Component = ({
         <Input type="text" className="size-1" label="Nome do visitante" placeHolder="Nome do visitante" inputValue={name} setInputValue={setName} required disabled={isDelete()} />
       </div>
       <div className="divider">
-        <Input type="text" className="size-2" label="Endereço" placeHolder="Endereço" inputValue={address} setInputValue={setAddress} required disabled={isDelete()} />
-        <Input type="number" className="size-4" label="Número" placeHolder="Número" inputValue={number} setInputValue={setNumber} required disabled={isDelete()} />
-        <Input type="number" className="size-4" label="ID Imóvel" placeHolder="ID Imóvel" inputValue={propertyId} setInputValue={setPropertyId} required disabled={isDelete()} />
+        <Input type="text" className="size-2" label="Endereço" placeHolder="Ex: Rua São Paulo" inputValue={address} setInputValue={setAddress} required disabled={isDelete()} />
+        <Input type="number" className="size-4" label="Número" placeHolder="Ex: 243" inputValue={number} setInputValue={setNumber} required disabled={isDelete()} />
+        <Input type="number" className="size-4" label="ID Imóvel" placeHolder="Ex: 6778" inputValue={propertyId} setInputValue={setPropertyId} required disabled={isDelete()} />
       </div>
       <div className="divider">
         <button type="button" className="stretched secondary" onClick={handleCloseModal}>Cancelar</button>

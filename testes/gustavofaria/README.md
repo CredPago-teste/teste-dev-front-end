@@ -24,11 +24,6 @@ Esse outro comando irá criar um servidor para carregar a aplicação que geralm
 yarn start
 ```
 
-### 🔑 Dados para acessar a aplicação
-
-- email: email@credpago.com.br
-- senha: credpago
-
 <br>
 
 ---

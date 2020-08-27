@@ -31,7 +31,8 @@ const Component = ({ handleOpenAddModal }) => {
   }, []);
 
   const handleLogout = () => {
-    window.localStorage.clear();
+    window.localStorage.removeItem('user');
+    window.localStorage.removeItem('visits');
     window.location.replace('/login');
   };
 
