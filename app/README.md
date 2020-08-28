@@ -17,15 +17,15 @@ $ json-server --watch db.json --port 8000
 > Com yarn
 
 ```shell
-$ yarn add
+$ yarn install
 $ yarn start
 ```
 
 > Com npm
 
 ```shell
-$ yarn add
-$ yarn start
+$ npm install
+$ npm start
 ```
 
 ## Aplicação
