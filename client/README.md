@@ -1,72 +1,39 @@
-# Django Customers API - OOWLISH
+# Teste Dev Front End CredPago
 
-The API was developed using Django and Django-Rest-Framework. There two endpoints one for listing all the clients and other to filter the clients using the ID. There is a endpoint for consuming using GraphQL queries.
-
----
-
-## Installation
-
-- Clone this repo to your local machine using `https://github.com/meiraDaniel/oowlishChallenge` or download the repo and unzip the files.
-- You are gonna need a Google API KEY, you can get one in `https://developers.google.com/maps/documentation/geolocation/get-api-key`. If you don't want to create one i will send my API KEY via email.
+Solução do teste da empresa CredPago para a vaga de desenvolvedor Fron End.
 
 ---
 
 ### Setup
 
-- Replace the Google API KEY inside .env file with a real Google API KEY.
-- Inside the main dir run the commands bellow.
-
-> install the dependencies
+-Dentro da pasta server, inicie o Json-Server na porta 8000, caso utilize outra porta é necessário realizar mudanças nas rotas da API na pasta client/src/api/callApi.js   
 
 ```shell
-$ pip install -r requirements.txt
+$ json-server --watch db.json --port 8000
 ```
-> Create the migrations for the database
+
+-Dentro da pasta client, instale as dependências do package.json e inicie o app.  
+
+> Com yarn
 
 ```shell
-$ python manage.py makemigrations
-$ python manage.py migrate
+$ yarn add
+$ yarn start
 ```
 
-> Populate the database with the customers.csv file
+> Com npm
 
 ```shell
-$ python manage.py insert_customers_data customers.csv
-```
-> Launch the api
-
-```shell
-$ python manage.py runserver
+$ yarn add
+$ yarn start
 ```
 
-## Usage
+## Aplicação
 
-You could acess the API in the browser using localhost:8000 to have acess the swagger view, or you can use localhost:8000/graphql to acess the GraphQL endpoint.
+A aplicação possui 3 rotas:
+- '/' para a Home
+- '/login' para a Login
+- '/cadastro' para a Cadastro
 
-> Examples GraphQL queries
-
-```shell
-
-# Get all customers
-query {
-  customers {
-    id
-    firstName
-    lastName
-    email
-    city
-  } 
-}
-
-
-# Get customer by ID
-query {
-  customer (id:1) {
-    id
-    firstName
-    lastName
-    email
-    city
-  } 
-}
-```
+A tabela presente na tela Home é totalmente funcional realizando todas as demandas CRUD se comunicando com a REST API do JSON Server.
+Todos os formulários possuem um sistema de validação.
