@@ -1,0 +1,22 @@
+{
+  "appointments": [
+    {
+      "date": "15/02/2020",
+      "hour": "12:55",
+      "visitor_name": "Rodrigo Hammes",
+      "address": "Rua São Paulo",
+      "address_number": "850",
+      "immobile_id": "2221",
+      "id": 1
+    },
+    {
+      "date": "12/09/2020",
+      "hour": "12:52",
+      "visitor_name": "Rodrigo Albino Hammes",
+      "address": "Rua Tabatinga",
+      "address_number": "1518",
+      "immobile_id": "1617",
+      "id": 2
+    }
+  ]
+}
