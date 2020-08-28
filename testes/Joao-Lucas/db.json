@@ -1,0 +1,32 @@
+{
+  "visits": [
+    {
+      "date": "22/08/2020",
+      "time": "14:00",
+      "nameVisit": "José Soares",
+      "address": "Rua Jaraguá",
+      "number": "55",
+      "idHouse": "3812",
+      "idUser": 1,
+      "id": 2
+    },
+    {
+      "date": "28/08/2020",
+      "time": "04:48",
+      "nameVisit": "Samuel da Silva",
+      "address": "Rua Pedro de Melo",
+      "number": "596",
+      "idHouse": "2312",
+      "idUser": 1,
+      "id": 3
+    }
+  ],
+  "users": [
+    {
+      "email": "seu@email.com",
+      "password": "123123",
+      "name": "João Corretor",
+      "id": 1
+    }
+  ]
+}
